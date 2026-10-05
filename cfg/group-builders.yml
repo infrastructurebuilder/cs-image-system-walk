@@ -8,8 +8,8 @@ group_builders:
     type: okta-tf                # DECISION: managed OPA groups (`okta-tf-ro` would only look existing groups up)
     is_default: true
     executable: open-tofu
-    org: REPLACE-ME-org          # REPLACE: the Okta org name (the `okta` provider's org_name)
-    team: REPLACE-ME-team        # REPLACE: the OPA team; it also names the credential variables TF_VAR_<team>_key / _secret
+    org: noaa
+    team: nos-coastal-modeling-cloud-sandbox
     # DECISION (stage 75, REQUIRED): the posix group builder that makes these
     # groups exist on the machines of their images -- created after each
     # applying run with OPA's gid, members joined at each login (OPA's agent
@@ -35,12 +35,12 @@ user_builders:
     type: okta-tf-ro             # DECISION: read-only -- users are made by hand in Okta; this only emits `data "okta_user"` lookups
     is_default: true
     executable: open-tofu
-    org: REPLACE-ME-org          # REPLACE
-    team: REPLACE-ME-team        # REPLACE
+    org: noaa          # REPLACE
+    team: nos-coastal-modeling-cloud-sandbox        # REPLACE
     email_as_username: false     # DECISION: a user's `name` is the bare OPA username, not its email
     # DECISION: the address of a user that declares none is derived from its
     # name and this domain (the address is used ONLY to look the user up).
-    email_domain: example.invalid    # REPLACE: your org's mail domain
+    email_domain: ENC[age:YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAyUTFzZ1BHYlNvME8vcmhneG5kbXF1MlR3MUJKZ0phcGdXbzFkNEFRUnhFCkg3L0h2S2tQU0NwL1FRQ2hFUElHREJJWjNwZ3BLaG93clQwbjhhOUtPaTQKLS0tIHBTS3oySHNGaUtMRERwVVVuNk9ER3VERXNPUWpvTDVrRFIrYy9qYXlOWkUKoO+MnSzF6NS3s1VrDeHpvHrQXmN03kd/mLdszCeyNUcx2PTjfWHu+w==]
     default_user_email_template: "{{ user.name }}@{{ builder.email_domain }}"
     required_providers:
       - name: okta

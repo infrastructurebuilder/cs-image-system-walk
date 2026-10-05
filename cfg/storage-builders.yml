@@ -13,4 +13,4 @@ storage_builders:
       volume_type: gp3           # DECISION: gp3 over gp2 (cheaper per GB, baseline IOPS independent of size)
       encrypted: true            # DECISION: encrypted at rest
       tags:                      # builder-wide default tags; a storage item's own tags win key by key
-        Project: REPLACE-ME
+        Project: cs-image-system-walk

@@ -8,9 +8,9 @@ state_backends:
   - name: s3-main
     type: s3                     # DECISION: S3 (shared, locked) rather than `local` (one machine) or `gcs`
     is_default: true
-    bucket: tfstate-REPLACE-ME   # REPLACE: an existing bucket the profile can write
-    key: statefiles/my-team-images/   # REPLACE: the key prefix; each root's state is <prefix>/<root name>.tfstate
+    bucket: csis-walk-tfstate-514190660293   # REPLACE: an existing bucket the profile can write
+    key: statefiles/cs-image-system-walk/
     region: us-east-2            # REPLACE: the bucket's region
-    profile: REPLACE-ME-profile  # REPLACE: the AWS profile terraform uses for the backend
+    profile: noaa
     encrypt: true                # DECISION: server-side encryption of the state objects
     use_lockfile: true           # DECISION: S3 lockfile locking (default true)

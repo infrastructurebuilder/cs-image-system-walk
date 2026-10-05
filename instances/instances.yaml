@@ -4,7 +4,7 @@
 # An instance declares no group: it belongs to its image's group. A storage
 # attachment is legal only when that group is on the storage's allowed list.
 instances:
-  - name: team-node-1            # DECISION: a hostname label (letters, digits, hyphens; at most 63) -- it becomes the OS hostname and the OPA canonical name
+  - name: walk-node-1            # DECISION: a hostname label (letters, digits, hyphens; at most 63) -- it becomes the OS hostname and the OPA canonical name
     image: team-node
     machine_type: t3.medium      # DECISION: empty would take the runtime's default_machine_type
     description: "The team's standing node"

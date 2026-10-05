@@ -1,0 +1,9 @@
+content_hash: 9bd41e523234374de409f9d88adc52537ab66076d7d9b55129cf94f26924f0b1
+files:
+- setup-node.yml
+idempotent: ansible
+image: team-node
+name: base-tools
+operation: ansible
+run: 2026_10_05t22_21_07_444108
+type: ansible

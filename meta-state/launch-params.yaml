@@ -1,0 +1,25 @@
+instances:
+  walk-node-1:
+    build: unbound
+    enrollment:
+      enrollment: sftd-token
+      server_label: sftd.tx.group=walk_team
+    ephemeral: false
+    group: walk_team
+    hostname: walk-node-1-001
+    identity_type: okta
+    image: team-node
+    launched: false
+    machine_type: t3.medium
+    mounts:
+    - builder: aws-ebs
+      device: /dev/xvdf
+      group: walk_team
+      mount_point: /mnt/data
+      public_read: false
+      share_mode: '2770'
+      storage: data
+      type: ebs
+    run: 2026_10_05t22_21_07_444108
+    session: ssm
+    user_data_sha256: 7f3fe0bf40f474f82d1235de89e99ca56596c6b3e005b88df9accdc5917f0e26

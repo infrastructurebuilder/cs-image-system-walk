@@ -8,7 +8,7 @@ storages:
   - name: data
     # DECISION: no `type`, so the default storage builder (aws-ebs) realizes it
     groups:                      # the groups allowed to attach; each gets a private /<group>/ subtree
-      - team
+      - walk_team
     share_mode: "2770"           # DECISION: private per-group subtree (default); "2775" shares reads between allowed groups
     state: active
     tags:

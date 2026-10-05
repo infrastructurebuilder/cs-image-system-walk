@@ -1,0 +1,16 @@
+groups:
+  walk_team:
+    admins:
+    - mykel.alvis
+    builder: opa-groups
+    gid_policy: creation-only
+    identity_type: okta
+    is_root: true
+    managed: true
+    members: []
+note: structural facts only; gids flow by terraform remote-state reference (N7)
+run: 2026_10_05t22_21_07_444108
+user_builders:
+  okta-users: okta-tf-ro
+users:
+- mykel.alvis

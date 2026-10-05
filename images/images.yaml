@@ -5,7 +5,7 @@
 # (modification items).
 images:
   - name: team-node
-    group: team                  # the owning group: every instance of this image belongs to it
+    group: walk_team                  # the owning group: every instance of this image belongs to it
     source_image: el10           # the base (an OS builder name) -- or another image's name, chaining to a base
     description: "The team's working node: {{ image.name }} from el10"
     # DECISION: `pinned` bakes from the pinned parent build until an explicit

@@ -7,7 +7,7 @@
 # is a DECISION: the comment beside it says what was decided and what the
 # alternatives are.
 
-id: my-team-images-REPLACE-ME       # REPLACE: the configuration's identifier (any string; it names nothing in the cloud)
+id: cs-image-system-walk
 generation_directory: ./generated/  # DECISION: where a run writes its emission; the default is `generated` (same place)
 # DECISION: the timestamp format baked into every generated image name. The
 # default is %Y-%m-%d-%H%M%S; this compact form sorts the same and is shorter
@@ -22,13 +22,12 @@ sleep_before_finalization: 1        # read, then logged as ignored: the runner s
 # example loads anywhere, protecting nothing.
 encryption:
   recipients:
-    - age1hl95vsankapyxyyejhdejmywuwc4ddvpjmflj0hf0y8xjtuk3vystd9ang   # REPLACE: your holders' age public keys, one per holder
+    - age1hg4md3my9yvmw3pmuck5z8mnfgqawv2c3v2hedkra6ttr5v644js96hen3   # REPLACE: your holders' age public keys, one per holder
 
 # What the public-safe scanner lets through, by decision (2.2). Everything
 # else that looks like a secret or a person refuses the commit.
 public_safe:
   allow:
-    - "path:.age-identity"          # the TEST identity, committed on purpose; DROP this line the day a real identity replaces it
     - "mykelalvis@infrastructurebuilder.org"   # the copyright holder in the SPDX header of every release-owned file: public by intent
 
 
@@ -57,9 +56,9 @@ config:
   module_source_base: tfmodules   # DECISION: the modules travel with the tree (the release ships them; init-config writes and refreshes them)
   # REPLACE: the OPA gateway selector the group builder falls back to when it
   # sets no `gateway_selector` of its own (section 9.2).
-  okta_gateway_selector: "environment=REPLACE-ME"
+  okta_gateway_selector: "environment=staging"
   # The mandatory local admin user of every base image gets these PUBLIC keys
   # (a list; rotation = add the new key, migrate, remove the old). Anything
   # resembling private-key material is refused at load.
   admin_public_keys:
-    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPlaceholderKeyReplaceMeReplaceMeReplaceMe csis-admin-REPLACE-ME"   # REPLACE: an operator's public key
+    - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMIgIcl+Fgs5qoSEa+EphyYGuHUngHf+Wai+/O+0wegN csis-walk-admin"
