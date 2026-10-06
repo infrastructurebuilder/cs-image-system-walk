@@ -1,13 +1,18 @@
-# Every dotfile, at any depth, is ignored unless named below (the operator,
-# 2026-10-05: a token or key dropped beside the tree must never be staged).
-# That covers the shell's exports (.envrc), every dot-named credential file,
-# .terraform/, the plugin cache and editor residue without naming them.
+# Every dotfile, at any depth, is ignored unless named below (hygiene XII
+# item 4, from the walk of the daily driver: a token or key dropped beside the
+# tree must never be staged). That covers the shell's exports (.envrc), every
+# dot-named credential file, .terraform/, the plugin cache and editor residue
+# without naming them.
 .*
 !.gitignore
 !.github
 !.githooks
 !.csis-version
 !**/.terraform.lock.hcl
+# the TEST identity the starter ships, committed on purpose (README); delete
+# these two lines with it
+!.age-identity
+!.age-recipient
 # Credential files that are not dotfiles: never committed
 *.pem
 # The private mirror: the plaintext an execution runs from
