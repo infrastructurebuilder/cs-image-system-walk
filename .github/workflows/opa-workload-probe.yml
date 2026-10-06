@@ -21,11 +21,11 @@ on:
       team:
         description: "the OPA team"
         type: string
-        default: REPLACE-ME
+        default: nos-coastal-modeling-cloud-sandbox
       opa_addr:
         description: "the OPA address"
         type: string
-        default: https://REPLACE-ME.pam.okta.com
+        default: https://noaa.pam.okta.com
 
 jobs:
   probe:

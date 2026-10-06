@@ -1,23 +1,24 @@
-# The shell's exports and every credential file: never committed
-.envrc
-.private_key.pem
-.private_key.json
-.public_key.json
+# Every dotfile, at any depth, is ignored unless named below (the operator,
+# 2026-10-05: a token or key dropped beside the tree must never be staged).
+# That covers the shell's exports (.envrc), every dot-named credential file,
+# .terraform/, the plugin cache and editor residue without naming them.
+.*
+!.gitignore
+!.github
+!.githooks
+!.csis-version
+!**/.terraform.lock.hcl
+# Credential files that are not dotfiles: never committed
 *.pem
-.age-identity-*
 # The private mirror: the plaintext an execution runs from
 _private
 # Tool residue and the run-local files; generated/ itself IS committed (a
 # --commit run stages meta-state/ and generated/)
-**/.terraform/
-!**/.terraform.lock.hcl
 **/target/
 *.tfstate
 *.tfstate.backup
 tfplan
 *.tfvars
 !generated/bootstrap/bootstrap.auto.tfvars
-.tofu-plugin-cache/
 YAML_DUMP.yaml
 __pycache__/
-.DS_Store

@@ -35,7 +35,7 @@ on:
         default: dry
 
 env:
-  PERFORM_RUNTIME: aws-REPLACE-ME          # the runtime `perform` drives (cfg/runtime-builders.yml)
+  PERFORM_RUNTIME: aws-main          # the runtime `perform` drives (cfg/runtime-builders.yml)
   GUARD_RUNTIME: ""                        # REPLACE-ME or empty: a runtime CI must never bake on; its emission may not change between records
   AWS_REGION: us-east-2                    # REPLACE-ME
   # a version pin for the release CI installs: the content of .csis-version, else the latest on PyPI
@@ -71,8 +71,8 @@ jobs:
       contents: read
     env:
       OKTA_API_PRIVATE_KEY: ${{ secrets.OKTA_API_PRIVATE_KEY }}
-      TF_VAR_REPLACE_ME_key: ${{ secrets.TF_VAR_KEY }}          # REPLACE-ME: TF_VAR_<team>_key
-      TF_VAR_REPLACE_ME_secret: ${{ secrets.TF_VAR_SECRET }}    # REPLACE-ME: TF_VAR_<team>_secret
+      TF_VAR_nos_coastal_modeling_cloud_sandbox_key_key: ${{ secrets.TF_VAR_KEY }}          # REPLACE-ME: TF_VAR_<team>_key
+      TF_VAR_nos_coastal_modeling_cloud_sandbox_key_secret: ${{ secrets.TF_VAR_SECRET }}    # REPLACE-ME: TF_VAR_<team>_secret
     steps:
       - name: Gate on the secrets
         id: gate
@@ -188,8 +188,8 @@ jobs:
       contents: write           # the records are committed and pushed back here
     env:
       OKTA_API_PRIVATE_KEY: ${{ secrets.OKTA_API_PRIVATE_KEY }}
-      TF_VAR_REPLACE_ME_key: ${{ secrets.TF_VAR_KEY }}          # REPLACE-ME: TF_VAR_<team>_key
-      TF_VAR_REPLACE_ME_secret: ${{ secrets.TF_VAR_SECRET }}    # REPLACE-ME: TF_VAR_<team>_secret
+      TF_VAR_nos_coastal_modeling_cloud_sandbox_key_key: ${{ secrets.TF_VAR_KEY }}          # REPLACE-ME: TF_VAR_<team>_key
+      TF_VAR_nos_coastal_modeling_cloud_sandbox_key_secret: ${{ secrets.TF_VAR_SECRET }}    # REPLACE-ME: TF_VAR_<team>_secret
     steps:
       - name: Gate on the secrets and decide the mode
         id: gate
