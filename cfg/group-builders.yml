@@ -40,7 +40,7 @@ user_builders:
     email_as_username: false     # DECISION: a user's `name` is the bare OPA username, not its email
     # DECISION: the address of a user that declares none is derived from its
     # name and this domain (the address is used ONLY to look the user up).
-    email_domain: ENC[age:YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAyUTFzZ1BHYlNvME8vcmhneG5kbXF1MlR3MUJKZ0phcGdXbzFkNEFRUnhFCkg3L0h2S2tQU0NwL1FRQ2hFUElHREJJWjNwZ3BLaG93clQwbjhhOUtPaTQKLS0tIHBTS3oySHNGaUtMRERwVVVuNk9ER3VERXNPUWpvTDVrRFIrYy9qYXlOWkUKoO+MnSzF6NS3s1VrDeHpvHrQXmN03kd/mLdszCeyNUcx2PTjfWHu+w==]
+    email_domain: ENC[age:YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBITXVMOXpSb2tSWHcxTk1jM2Rxa05zcnk2T3pxeWtDRThTWWNMU2N0MFgwCnJpcjNKVnVVcDB5Zi9VcXBhVXRjTzVIQXZweG5HTjlJSE5uZGg3NTBSSFEKLT4gWDI1NTE5IElSU2hsd3ZyU2wzUHB1SVZzZGJpVkdiTVBCQmxNenhDV29lSDFLZ0dwRm8KQmNkMExOZWZ2VVJLSHRRcWxSc1VlWTdFMnpuMXg5QU1uYm1sc01RUW1YTQotLS0gMjVYdnZLSlVJaUtIM2F2MzlzSnJDV2lRVWxaWUI1OXNlbUgzc0x6NUc1OArP0YY8ydt6uD7oWl8tT+DGKRxsTQRQenc5EdA/teFSkUlzV1razeqs]
     default_user_email_template: "{{ user.name }}@{{ builder.email_domain }}"
     required_providers:
       - name: okta

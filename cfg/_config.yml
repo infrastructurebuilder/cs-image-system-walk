@@ -23,6 +23,7 @@ sleep_before_finalization: 1        # read, then logged as ignored: the runner s
 encryption:
   recipients:
     - age1hg4md3my9yvmw3pmuck5z8mnfgqawv2c3v2hedkra6ttr5v644js96hen3   # REPLACE: your holders' age public keys, one per holder
+    - age19q8vgverqfj0xenndumrgvvhke0he6rjnqeuznsc740ar47ya35slqt608
 
 # What the public-safe scanner lets through, by decision (2.2). Everything
 # else that looks like a secret or a person refuses the commit.
