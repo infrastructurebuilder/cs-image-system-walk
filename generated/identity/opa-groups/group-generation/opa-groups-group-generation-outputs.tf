@@ -5,6 +5,9 @@
 # gid shim: {group: gid} for every managed group
 data "external" "group_gids" {
   provider = external.opa_groups
+  depends_on = [
+    module.group_walk_team,
+  ]
   program = [
     "cs-image-system",
     "identity",

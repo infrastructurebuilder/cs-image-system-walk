@@ -122,3 +122,63 @@ runs:
   - release
   - retention
   run: 2026_10_07t11_12_30_555682
+- apply:
+    base-image: stale-script-skipped
+    identity: dry-run
+    instance-image: stale-script-skipped
+    release: no-script
+    retention: no-script
+    storage: stale-script-skipped
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - identity
+  run: 2026_10_07t11_21_49_160782
+- apply:
+    identity: failed
+  dry_run: false
+  error: 'LifecycleRunError: Apply failed for lifecycle identity'
+  ok: false
+  requested:
+  - identity
+  run: 2026_10_07t11_22_31_925827
+- apply:
+    base-image: stale-script-skipped
+    identity: dry-run
+    instance-image: stale-script-skipped
+    release: no-script
+    retention: no-script
+    storage: stale-script-skipped
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - identity
+  run: 2026_10_07t13_46_12_926019
+- apply:
+    base-image: stale-script-skipped
+    identity: dry-run
+    instance-image: stale-script-skipped
+    release: no-script
+    retention: no-script
+    storage: stale-script-skipped
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - identity
+  run: 2026_10_07t13_47_23_216172
+- apply:
+    base-image: stale-script-skipped
+    identity: executed
+    instance-image: stale-script-skipped
+    release: no-script
+    retention: no-script
+    storage: stale-script-skipped
+  dry_run: false
+  error: null
+  ok: true
+  requested:
+  - identity
+  run: 2026_10_07t13_47_50_739856
