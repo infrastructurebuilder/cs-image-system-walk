@@ -48,7 +48,7 @@ config:
   # `true` (every root of that lifecycle), `false` (none) or a LIST of builder
   # or runtime names (`[aws-main]` lets only that runtime's roots apply).
   apply_identity: true
-  apply_storage: false
+  apply_storage: true
   apply_instances: false
   # REPLACE: where the generated `module` calls find the terraform modules --
   # relative to THIS tree (rewritten for each root's depth), or an absolute
