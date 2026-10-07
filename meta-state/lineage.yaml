@@ -1,0 +1,57 @@
+builds:
+- build_id: ami-0f3c5c4c637ccff19
+  capabilities:
+    identity_types:
+    - okta
+    storage_types:
+    - ebs
+  chain: []
+  input_fingerprint: a20ed49be19098be9ba900c36b8327dfa693e7617d1723e8e239f3ce324793cd
+  local_mods: false
+  mods: []
+  name: el10-aws-main-20261007_233340
+  parent: vendor
+  run: 2026_10_07t23_33_41_970905
+  runtime: aws-main
+  series: el10
+  tests:
+    assertions: 10
+    in_bake: true
+  update:
+    exclude:
+    - kernel*
+    packages: []
+    pin: {}
+    policy: security
+- build_id: ami-03a8cef5e12cd1b50
+  capabilities:
+    identity_types:
+    - okta
+    storage_types:
+    - ebs
+  chain:
+  - team-node
+  input_fingerprint: 9f2b7a99f125dfcacb4bda9d5a09c38b2be7c2e6920b869106948de671dc1657
+  local_mods: true
+  mods:
+  - content_hash: 9bd41e523234374de409f9d88adc52537ab66076d7d9b55129cf94f26924f0b1
+    idempotent: ansible
+    name: base-tools
+    operation: ansible
+    run: 2026_10_07t23_33_41_970905
+    type: ansible
+  - content_hash: 29835b321839fdb32b026f37fd4cec46335a84adf29956be250292ba3f0268cc
+    idempotent: unknown
+    name: site-files
+    operation: bash
+    run: 2026_10_07t23_33_41_970905
+    type: bash
+  name: team-node-packer-ebs-20261007_233340
+  parent: ami-0f3c5c4c637ccff19
+  run: 2026_10_07t23_33_41_970905
+  runtime: aws-main
+  series: team-node
+  tests:
+    assertions: 7
+    in_bake: true
+  update: null

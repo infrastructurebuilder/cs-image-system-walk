@@ -1,0 +1,10 @@
+images:
+  team-node@aws-main: ami-0f3c5c4c637ccff19
+instances: {}
+upgrades:
+- kind: image
+  name: team-node@aws-main
+  op: bind
+  run: 2026_10_07t23_33_41_970905
+  runtime: aws-main
+  to: ami-0f3c5c4c637ccff19
