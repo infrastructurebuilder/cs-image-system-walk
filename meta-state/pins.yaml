@@ -1,6 +1,7 @@
 images:
   team-node@aws-main: ami-0f3c5c4c637ccff19
-instances: {}
+instances:
+  walk-node-1: ami-03a8cef5e12cd1b50
 upgrades:
 - kind: image
   name: team-node@aws-main
@@ -8,3 +9,8 @@ upgrades:
   run: 2026_10_07t23_33_41_970905
   runtime: aws-main
   to: ami-0f3c5c4c637ccff19
+- kind: instance
+  name: walk-node-1
+  op: bind
+  run: 2026_10_07t23_50_23_966708
+  to: ami-03a8cef5e12cd1b50

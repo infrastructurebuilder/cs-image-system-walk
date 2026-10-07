@@ -1,6 +1,6 @@
 instances:
   walk-node-1:
-    build: unbound
+    build: ami-03a8cef5e12cd1b50
     enrollment:
       enrollment: sftd-token
       server_label: sftd.tx.group=walk_team
@@ -20,6 +20,6 @@ instances:
       share_mode: '2770'
       storage: data
       type: ebs
-    run: 2026_10_07t23_33_41_970905
+    run: 2026_10_07t23_50_23_966708
     session: ssm
     user_data_sha256: 7f3fe0bf40f474f82d1235de89e99ca56596c6b3e005b88df9accdc5917f0e26

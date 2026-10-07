@@ -4,8 +4,7 @@ module "instance_walk_node_1" {
   source                      = "../../../../tfmodules/aws_instance"
   providers                   = { aws = aws.tofu_aws }
   name                        = "walk-node-1"
-  ami_id                      = var.walk_node_1_ami_id
-  ami_name_pattern            = "team-node-packer-ebs*"
+  ami_id                      = "ami-03a8cef5e12cd1b50"
   instance_type               = "t3.medium"
   associate_public_ip_address = false
   vpc_security_group_ids      = [aws_security_group.csis_instances.id, "sg-03015ec107ae5f81a"]
