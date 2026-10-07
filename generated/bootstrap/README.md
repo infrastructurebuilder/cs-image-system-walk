@@ -18,8 +18,8 @@ apply needs nothing typed again; no secret value is in it or in the state.
   - Actions enabled for all actions; workflow permissions stay read-only (the workflow asks for what each job needs)
   - Actions variables: PERFORM_RUNTIME=aws-main, AWS_REGION=us-east-2
 - **okta**
-  - OPA team `nos-coastal-modeling-cloud-sandbox` at https://noaa.pam.okta.com; the workload connection `github-cs-image-system-walk` does not exist yet
-  - the workload role `cs-image-system-walk-ci` does not exist yet; named on `opa-groups`: no
+  - OPA team `nos-coastal-modeling-cloud-sandbox` at https://noaa.pam.okta.com; the workload connection `github-cs-image-system-walk` exists (active: yes; requires this repository: yes)
+  - the workload role `cs-image-system-walk-ci` exists (bound to `github-cs-image-system-walk`: yes; pinned to `main`: no); named on `opa-groups`: yes
   - the Okta API services app authenticates with its key; read scopes only: yes; its own record readable: no
   - nothing here is terraform: the section reads and checks, and every check above was made when `bootstrap` last ran (re-run it to check again)
 
@@ -49,9 +49,7 @@ bash generated/bootstrap/set-secrets.sh
 - The nine secrets' VALUES: one file per secret under the secrets directory (`/home/mykel.alvis/walk-secrets`, never committed), then `bash set-secrets.sh` (CI_SETUP.md 3.7).
 - The age identity for CI (CI_SETUP.md 3.6): `age-keygen`, the public key into encryption.recipients, `reencrypt`.
 - The values in `.github/workflows/ci.yml` still marked REPLACE-ME: PERFORM_RUNTIME, GUARD_RUNTIME and AWS_REGION are set as Actions variables by this root, but the workflow reads its own literals until a release makes it read `vars`.
-- Create the workload connection `github-cs-image-system-walk` as a DRAFT in the OPA console (a DevOps admin): type GitHub Actions, required claims `repository` and `repository_owner` naming this repository, no `ref` claim, TTL 1 hour; then run the OPA workload probe (CI_SETUP.md 3.5 steps 1 and 4).
-- Create the workload role `cs-image-system-walk-ci` with `github-cs-image-system-walk` selected and no conditions yet (a security admin; CI_SETUP.md 3.5 step 2).
-- Name them on `opa-groups` in cfg/group-builders.yml, beside `team:` -- `workload_connection: "github-cs-image-system-walk"` and `workload_role: "cs-image-system-walk-ci"` -- then run the identity lifecycle, which makes the per-group CI policies (CI_SETUP.md 3.5 step 3).
+- After the first green login proof from `main`, add the condition `ref` Equals `refs/heads/main` to the workload role `cs-image-system-walk-ci` (CI_SETUP.md 3.5 step 6).
 - Ask the org's Okta admins to confirm the API services app grants no `*.manage` scope and allows private-key client authentication only: its read scopes cannot see its own record, so the bootstrap could not check either.
 - The OPA service user and its API key pair (`TF_VAR_KEY` / `TF_VAR_SECRET`) are made by hand in the OPA console; set-secrets.sh reads them from files (CI_SETUP.md 3.5).
 

@@ -47,15 +47,19 @@ sections:
   okta:
     api_host: https://noaa.pam.okta.com
     builder: opa-groups
-    builder_names_them: false
-    connection_exists: false
+    builder_names_them: true
+    connection_active: true
+    connection_exists: true
+    connection_requires_repository: true
     okta_app_authenticates: true
     okta_app_read_only: true
     okta_app_readable: false
     okta_base_url: okta.com
     org: noaa
     production_branch: main
-    role_exists: false
+    role_bound: true
+    role_exists: true
+    role_pinned: false
     team: nos-coastal-modeling-cloud-sandbox
     wanted: true
     workload_connection: github-cs-image-system-walk
