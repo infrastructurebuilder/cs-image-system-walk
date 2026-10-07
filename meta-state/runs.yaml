@@ -226,3 +226,21 @@ runs:
   requested:
   - storage
   run: 2026_10_07t15_26_24_332664
+- apply:
+    base-image: dry-run
+    identity: dry-run
+    instance-image: dry-run
+    release: no-script
+    retention: no-script
+    storage: dry-run
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - identity
+  - storage
+  - base-image
+  - instance-image
+  - release
+  - retention
+  run: 2026_10_07t15_37_26_084397
