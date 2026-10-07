@@ -1,4 +1,4 @@
-run: 2026_10_07t14_43_19_428707
+run: 2026_10_07t15_26_24_332664
 storages:
   data:
     allowed_groups:
@@ -7,7 +7,7 @@ storages:
     attachments:
     - walk-node-1
     builder: aws-ebs
-    current_state: null
+    current_state: active
     generation: 1
     lifecycle: {}
     plugin: tf-aws-ebs

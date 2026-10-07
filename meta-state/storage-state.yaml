@@ -1,0 +1,13 @@
+storages:
+  data:
+    facts:
+      archive: csis-data-archive
+      builder: aws-ebs
+      type: ebs
+    generation: 1
+    history:
+    - from: null
+      generation: 1
+      run: 2026_10_07t15_26_24_332664
+      to: active
+    state: active
