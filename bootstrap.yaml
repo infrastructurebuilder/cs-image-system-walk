@@ -1,0 +1,62 @@
+# cs-image-system bootstrap: the interview's answers (stage 70).
+#
+# `cs-image-system bootstrap` wrote this; `generated/bootstrap/` is generated
+# from it by every run and by `bootstrap` itself. Edit it by hand or
+# re-interview (`just bootstrap`: each question shows the answer here as its
+# default); the next run regenerates the root. A section with `wanted: false`
+# contributes nothing. No secret VALUE belongs here: the secrets script reads
+# values from files under the directory named below.
+version: 1
+sections:
+  aws:
+    account_id: '514190660293'
+    instance_profile: AmazonSSMRoleForInstancesQuickSetup
+    instance_profile_exists: true
+    oidc_provider_exists: true
+    owner_id: '50206755'
+    production_branch: main
+    profile: noaa
+    read_extra_subjects: ''
+    read_role_exists: false
+    read_role_name: csis-walk-readonly
+    region: us-east-2
+    repo_id: '1405776703'
+    repository: infrastructurebuilder/cs-image-system-walk
+    state_bucket: csis-walk-tfstate-514190660293
+    state_bucket_exists: true
+    state_prefix: statefiles/cs-image-system-walk/
+    state_region: us-east-2
+    subject_forms: ids
+    tags: Environment=development,Project=cs-image-system-walk
+    wanted: true
+    write_extra_subjects: ''
+    write_role_exists: false
+    write_role_name: csis-walk-apply
+  gcp:
+    wanted: false
+  github:
+    aws_region: us-east-2
+    default_branch: develop
+    guard_runtime: ''
+    perform_runtime: aws-main
+    production_branch: main
+    protect_production: true
+    repository: infrastructurebuilder/cs-image-system-walk
+    secrets_dir: /home/mykel.alvis/walk-secrets
+    wanted: true
+  okta:
+    api_host: https://noaa.pam.okta.com
+    builder: opa-groups
+    builder_names_them: false
+    connection_exists: false
+    okta_app_authenticates: true
+    okta_app_read_only: true
+    okta_app_readable: false
+    okta_base_url: okta.com
+    org: noaa
+    production_branch: main
+    role_exists: false
+    team: nos-coastal-modeling-cloud-sandbox
+    wanted: true
+    workload_connection: github-cs-image-system-walk
+    workload_role: cs-image-system-walk-ci

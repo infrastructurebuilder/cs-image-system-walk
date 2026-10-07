@@ -1,0 +1,7 @@
+# Tool residue and state stay out; the tfvars and everything else are committed (decision D3)
+.terraform/
+!.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+tfplan
+!bootstrap.auto.tfvars

@@ -14,7 +14,7 @@ data "amazon-ami" "team-node_aws-main" {
 }
 source "amazon-ebs" "team-node" {
   source_ami    = data.amazon-ami.team-node_aws-main.id
-  ami_name      = "team-node-packer-ebs-20261006_143607"
+  ami_name      = "team-node-packer-ebs-20261007_053607"
   instance_type = "t3.medium"
   region        = "us-east-2"
   vpc_id        = "vpc-0c78d0d63b7a100df"
@@ -24,7 +24,7 @@ source "amazon-ebs" "team-node" {
     csis_config         = "cs-image-system-walk",
     csis_series         = "team-node",
     csis_parent         = "series:el10",
-    csis_run            = "2026_10_06t14_36_08_115934",
+    csis_run            = "2026_10_07t05_36_09_841340",
     csis_fingerprint    = "2b85c784a15b7b9f",
     csis_identity_types = "okta",
     csis_storage_types  = "ebs",
