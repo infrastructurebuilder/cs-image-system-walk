@@ -10,7 +10,7 @@ data "amazon-ami" "el10_aws-main" {
 }
 source "amazon-ebs" "el10" {
   source_ami    = data.amazon-ami.el10_aws-main.id
-  ami_name      = "el10-aws-main-20261007_225004"
+  ami_name      = "el10-aws-main-20261007_233242"
   instance_type = "t3.medium"
   region        = "us-east-2"
   vpc_id        = "vpc-0c78d0d63b7a100df"
@@ -19,7 +19,7 @@ source "amazon-ebs" "el10" {
     csis_config         = "cs-image-system-walk",
     csis_series         = "el10",
     csis_parent         = "vendor",
-    csis_run            = "2026_10_07t22_50_05_321425",
+    csis_run            = "2026_10_07t23_32_43_248622",
     csis_fingerprint    = "a20ed49be19098be",
     csis_identity_types = "okta",
     csis_storage_types  = "ebs",
