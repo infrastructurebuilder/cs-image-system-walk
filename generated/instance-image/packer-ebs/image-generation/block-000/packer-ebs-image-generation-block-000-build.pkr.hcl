@@ -4,9 +4,45 @@ build {
   sources = [
     "source.amazon-ebs.team-node"
   ]
-  # Modifications for base-tools of type ansible
+  # before anything else: the build machine settles (aws-main)
   provisioner "shell" {
     only = ["amazon-ebs.team-node"]
+    inline = [
+      "# before any package work: the machine's own first-boot script has ended (bounded)",
+      "if command -v cloud-init >/dev/null 2>&1; then timeout 300 cloud-init status --wait >/dev/null 2>&1 || true; fi",
+      "# session mechanism 'ssm' (aws-main): Systems Manager may act on every new machine (agent updates, patch scans, inventory); wait until it has been quiet for 30s, 600s at most",
+      "quiet=0; waited=0",
+      "while [ \"$quiet\" -lt 3 ] && [ \"$waited\" -lt 600 ]; do if [ \"$(cut -d. -f1 /proc/uptime)\" -lt 90 ] || sudo grep -Eaqs 'ssm-document-work[e]r|amazon-ssm-agent-updat[e]r' /proc/[0-9]*/cmdline; then quiet=0; else quiet=$((quiet + 1)); fi; sleep 10; waited=$((waited + 10)); done",
+      "if [ \"$quiet\" -lt 3 ]; then echo \"csis: Systems Manager was still acting on this machine after $waited seconds; going on (a package step waits out a held database)\"; else echo \"csis: Systems Manager is quiet on this machine (waited $waited seconds)\"; fi",
+      "# the step runner: a step that fails on a held package database is run again (never in the image: /run is a tmpfs)",
+      "sudo tee /run/csis-step >/dev/null <<'CSIS_STEP'",
+      "#!/bin/sh",
+      "# cs-image-system: runs ONE step of a bake. A step that fails while the package",
+      "# database is held by another process is run again after a wait; any other",
+      "# failure is the step's own and is returned at once.",
+      "tries=\"$${CSIS_STEP_TRIES:-10}\"",
+      "pause=\"$${CSIS_STEP_WAIT:-30}\"",
+      "out=\"$(mktemp)\" || exit 1",
+      "trap 'rm -f \"$out\" \"$out.rc\"' EXIT",
+      "n=1",
+      "while :; do",
+      "  { \"$@\" 2>&1; echo \"$?\" > \"$out.rc\"; } | tee \"$out\"",
+      "  rc=\"$(cat \"$out.rc\")\"",
+      "  [ \"$rc\" = 0 ] && exit 0",
+      "  [ \"$n\" -ge \"$tries\" ] && exit \"$rc\"",
+      "  grep -Eq 'transaction lock|Could not get lock|dpkg frontend lock|Unable to lock the administration directory' \"$out\" || exit \"$rc\"",
+      "  echo \"csis-step: the package database was held by another process (attempt $n of $tries); this step runs again in $pause seconds\"",
+      "  n=$((n + 1))",
+      "  sleep \"$pause\"",
+      "done",
+      "CSIS_STEP",
+      "sudo chmod 0755 /run/csis-step",
+    ]
+  }
+  # Modifications for base-tools of type ansible
+  provisioner "shell" {
+    only            = ["amazon-ebs.team-node"]
+    execute_command = "chmod +x {{ .Path }}; if [ -r /run/csis-step ]; then {{ .Vars }} sh /run/csis-step {{ .Path }}; else {{ .Vars }} {{ .Path }}; fi"
     inline = [
       "test -x /usr/local/bin/csis-ansible-python || { for v in 3.12 3.11 3.9; do command -v python$v >/dev/null 2>&1 && break; sudo dnf -y install python$v >/dev/null 2>&1 && break; done; P=$(ls /usr/bin/python3.[0-9]* 2>/dev/null | grep -v config | sort -V | tail -1); [ -n \"$P\" ] || P=$(command -v python3); sudo ln -sf \"$P\" /usr/local/bin/csis-ansible-python; }",
     ]
@@ -18,8 +54,9 @@ build {
   }
   # Modifications for site-files of type bash (shell)
   provisioner "shell" {
-    only    = ["amazon-ebs.team-node"]
-    scripts = ["scripts/post-install.sh"]
+    only            = ["amazon-ebs.team-node"]
+    scripts         = ["scripts/post-install.sh"]
+    execute_command = "chmod +x {{ .Path }}; if [ -r /run/csis-step ]; then {{ .Vars }} sh /run/csis-step {{ .Path }}; else {{ .Vars }} {{ .Path }}; fi"
   }
   provisioner "shell" {
     only = ["amazon-ebs.team-node"]
@@ -27,10 +64,12 @@ build {
       "for p in tmux; do rpm -q \"$p\" >/dev/null 2>&1 || dpkg -s \"$p\" >/dev/null 2>&1 || if command -v dnf >/dev/null 2>&1; then sudo dnf -y install \"$p\"; elif command -v yum >/dev/null 2>&1; then sudo yum -y install \"$p\"; elif command -v apt-get >/dev/null 2>&1; then sudo apt-get install -y \"$p\"; else echo \"csis ensure: no dnf, yum or apt-get to install $p\" >&2; false; fi || exit 1; done",
       "printf '%s' 'cm9sZT13b3JrZXIK' | base64 -d > /tmp/.csis-ensure && ( sudo cmp -s /tmp/.csis-ensure '/etc/team-node.conf' || sudo install -m 0644 /tmp/.csis-ensure '/etc/team-node.conf' ) && rm -f /tmp/.csis-ensure",
     ]
+    execute_command = "chmod +x {{ .Path }}; if [ -r /run/csis-step ]; then {{ .Vars }} sh /run/csis-step {{ .Path }}; else {{ .Vars }} {{ .Path }}; fi"
   }
   # identity activation for owning group 'walk_team' (okta)
   provisioner "shell" {
-    only = ["amazon-ebs.team-node"]
+    only            = ["amazon-ebs.team-node"]
+    execute_command = "chmod +x {{ .Path }}; if [ -r /run/csis-step ]; then {{ .Vars }} sh /run/csis-step {{ .Path }}; else {{ .Vars }} {{ .Path }}; fi"
     inline = [
       "# identity activation for group 'walk_team' (okta) on image team-node",
       "sudo mkdir -p /etc/sft",
