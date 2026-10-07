@@ -67,7 +67,7 @@ build {
       "# verify: SSM agent baked",
       "command -v amazon-ssm-agent >/dev/null 2>&1 || test -x /usr/bin/amazon-ssm-agent || snap list amazon-ssm-agent >/dev/null 2>&1",
       "systemctl is-enabled amazon-ssm-agent >/dev/null 2>&1 || systemctl is-enabled snap.amazon-ssm-agent.amazon-ssm-agent.service >/dev/null 2>&1",
-      "if ! rpm -q git >/dev/null 2>&1 && ! { command -v dpkg >/dev/null 2>&1 && dpkg -s git >/dev/null 2>&1; }; then printf 'package %s is not installed\\n' git >&2; exit 1; fi",
+      "if ! rpm -q scaleft-server-tools >/dev/null 2>&1 && ! { command -v dpkg >/dev/null 2>&1 && dpkg -s scaleft-server-tools >/dev/null 2>&1; }; then printf 'package %s is not installed\\n' scaleft-server-tools >&2; exit 1; fi",
       "( id -u csisadmin ) >/dev/null 2>&1; test $? -eq 0",
     ]
   }

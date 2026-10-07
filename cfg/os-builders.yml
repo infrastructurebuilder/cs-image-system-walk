@@ -23,7 +23,7 @@ os_builders:
       exclude: ["kernel*"]
     # in-bake assertions: the bake fails if any fails
     tests:
-      packages: [git]
+      packages: [scaleft-server-tools]
       commands:
         - run: "id -u csisadmin"      # the mandatory local admin user exists
     runtimes:
