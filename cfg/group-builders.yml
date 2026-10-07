@@ -10,6 +10,8 @@ group_builders:
     executable: open-tofu
     org: noaa
     team: nos-coastal-modeling-cloud-sandbox
+    workload_connection: "github-cs-image-system-walk"
+    workload_role: "cs-image-system-walk-ci"
     # DECISION (stage 75, REQUIRED): the posix group builder that makes these
     # groups exist on the machines of their images -- created after each
     # applying run with OPA's gid, members joined at each login (OPA's agent

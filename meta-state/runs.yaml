@@ -83,3 +83,42 @@ runs:
   - release
   - retention
   run: 2026_10_07t05_36_09_841340
+- apply:
+    base-image: stale-script-skipped
+    identity: dry-run
+    instance-image: stale-script-skipped
+    release: no-script
+    retention: no-script
+    storage: stale-script-skipped
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - identity
+  run: 2026_10_07t06_23_08_269417
+- apply: {}
+  dry_run: false
+  error: 'CalledProcessError: Command ''[''tofu'', ''plan'', ''-refresh=false'']''
+    returned non-zero exit status 1.'
+  ok: false
+  requested:
+  - identity
+  run: 2026_10_07t06_24_06_046569
+- apply:
+    base-image: dry-run
+    identity: dry-run
+    instance-image: dry-run
+    release: no-script
+    retention: no-script
+    storage: dry-run
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - identity
+  - storage
+  - base-image
+  - instance-image
+  - release
+  - retention
+  run: 2026_10_07t11_12_30_555682

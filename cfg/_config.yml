@@ -47,7 +47,7 @@ config:
   # DECISION: nothing applies until the operator flips a flag. Each may be
   # `true` (every root of that lifecycle), `false` (none) or a LIST of builder
   # or runtime names (`[aws-main]` lets only that runtime's roots apply).
-  apply_identity: false
+  apply_identity: true
   apply_storage: false
   apply_instances: false
   # REPLACE: where the generated `module` calls find the terraform modules --

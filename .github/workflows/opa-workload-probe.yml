@@ -13,11 +13,11 @@ on:
       connection:
         description: "the workload connection's name"
         type: string
-        default: REPLACE-ME
+        default: github-cs-image-system-walk
       role:
         description: "the workload role's name (the role hint)"
         type: string
-        default: REPLACE-ME
+        default: cs-image-system-walk-ci
       team:
         description: "the OPA team"
         type: string
