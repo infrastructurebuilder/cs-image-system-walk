@@ -2,6 +2,44 @@ instances:
   walk-node-1:
     current:
       how: observed
+      instance_id: i-0792ba0408f0e1388
+      kind: durable
+      launch_params:
+        build: ami-04bb9df333af05e5b
+        enrollment:
+          enrollment: sftd-token
+          server_label: sftd.tx.group=walk_team
+        ephemeral: false
+        group: walk_team
+        hostname: walk-node-1-002
+        identity_type: okta
+        image: team-node
+        launched: true
+        launched_run: 2026_10_08t11_45_10_731148
+        machine_type: t3.medium
+        mounts:
+        - builder: aws-ebs
+          device: /dev/xvdf
+          group: walk_team
+          mount_point: /mnt/data
+          public_read: false
+          share_mode: '2770'
+          storage: data
+          type: ebs
+        run: 2026_10_08t11_45_10_731148
+        session: ssm
+        user_data_sha256: b033e338e992555cf5d485148430919a1536937c8c3f84c5253ce588b80e9ff7
+      number: 2
+      opened_at: '2026-10-08T11:47:47+00:00'
+      opened_run: 2026_10_08t11_45_10_731148
+      provider_hostname: ip-10-26-34-252.us-east-2.compute.internal
+    generation:
+      durable: 2
+      ephemeral: 0
+    history:
+    - closed_at: '2026-10-08T11:47:47+00:00'
+      closed_run: 2026_10_08t11_45_10_731148
+      how: observed
       instance_id: i-03903ef85cecb0dc2
       kind: durable
       launch_params:
@@ -33,7 +71,4 @@ instances:
       opened_at: '2026-10-08T00:42:32+00:00'
       opened_run: 2026_10_08t00_40_35_658425
       provider_hostname: ip-10-26-35-48.us-east-2.compute.internal
-    generation:
-      durable: 1
-      ephemeral: 0
-    history: []
+      why: replaced

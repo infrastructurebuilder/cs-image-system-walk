@@ -1,16 +1,16 @@
 instances:
   walk-node-1:
-    build: ami-03a8cef5e12cd1b50
+    build: ami-04bb9df333af05e5b
     enrollment:
       enrollment: sftd-token
       server_label: sftd.tx.group=walk_team
     ephemeral: false
     group: walk_team
-    hostname: walk-node-1-001
+    hostname: walk-node-1-002
     identity_type: okta
     image: team-node
     launched: true
-    launched_run: 2026_10_08t00_40_35_658425
+    launched_run: 2026_10_08t11_45_10_731148
     machine_type: t3.medium
     mounts:
     - builder: aws-ebs
@@ -21,6 +21,6 @@ instances:
       share_mode: '2770'
       storage: data
       type: ebs
-    run: 2026_10_08t11_29_37_185886
+    run: 2026_10_08t11_45_10_731148
     session: ssm
-    user_data_sha256: 7f3fe0bf40f474f82d1235de89e99ca56596c6b3e005b88df9accdc5917f0e26
+    user_data_sha256: b033e338e992555cf5d485148430919a1536937c8c3f84c5253ce588b80e9ff7
