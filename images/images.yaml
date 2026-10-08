@@ -20,6 +20,8 @@ images:
       commands:
         - run: "python3 --version"
           contains: "Python 3"
+        - run: "cat /etc/team-node.conf"
+          contains: "walk=13"
     modifications:
       - name: base-tools         # an ansible item: its playbooks, config-root-relative
         type: ansible
@@ -33,7 +35,7 @@ images:
           packages: [tmux]
           files:
             - path: /etc/team-node.conf
-              content: "role=worker\n"
+              content: "role=worker\nwalk=13\n"
               mode: "0644"
         scripts:
           - scripts/post-install.sh

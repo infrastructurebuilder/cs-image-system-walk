@@ -560,3 +560,21 @@ runs:
   - release
   - retention
   run: 2026_10_08t09_51_32_767671
+- apply:
+    base-image: no-script
+    identity: dry-run
+    instance-image: dry-run
+    release: no-script
+    retention: no-script
+    storage: dry-run
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - identity
+  - storage
+  - base-image
+  - instance-image
+  - release
+  - retention
+  run: 2026_10_08t10_29_56_426482

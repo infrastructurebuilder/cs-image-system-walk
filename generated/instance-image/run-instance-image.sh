@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # cs-image-system lifecycle runner: instance-image
-# run id: 2026_10_08t09_51_32_767671
+# run id: 2026_10_08t10_29_56_426482
 # Deferred commands accumulated while generating this lifecycle,
 # in phase order. Paths are relative to this lifecycle's directory.
 # state: workspace tofu-aws -> s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/tofu_aws.tfstate
@@ -9,6 +9,9 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 CSIS_ROOT="$(cd "../.." && pwd)"   # the configuration root, relative to this script
+
+# --- phase: image-generation ---
+( cd "packer-ebs/image-generation/block-000" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && packer build . )
 
 # --- phase: instance-generation ---
 ( cd "tofu-aws/instance-generation" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && rm -f tfplan )

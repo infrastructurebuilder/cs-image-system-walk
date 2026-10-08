@@ -1,0 +1,15 @@
+image: team-node
+mods:
+- content_hash: 9bd41e523234374de409f9d88adc52537ab66076d7d9b55129cf94f26924f0b1
+  dir: 01-base-tools
+  idempotent: ansible
+  name: base-tools
+  operation: ansible
+  type: ansible
+- content_hash: 1dcd377d9c27078176dc44a562fe7acc84265b171ecb0cd2a6924ad8a580b320
+  dir: 02-site-files
+  idempotent: unknown
+  name: site-files
+  operation: bash
+  type: bash
+run: 2026_10_08t10_29_56_426482

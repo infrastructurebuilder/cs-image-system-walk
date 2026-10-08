@@ -21,6 +21,6 @@ instances:
       share_mode: '2770'
       storage: data
       type: ebs
-    run: 2026_10_08t09_51_32_767671
+    run: 2026_10_08t10_29_56_426482
     session: ssm
     user_data_sha256: 7f3fe0bf40f474f82d1235de89e99ca56596c6b3e005b88df9accdc5917f0e26
