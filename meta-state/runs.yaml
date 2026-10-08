@@ -438,3 +438,21 @@ runs:
   requested:
   - instance-image
   run: 2026_10_08t00_40_35_658425
+- apply:
+    base-image: no-script
+    identity: dry-run
+    instance-image: dry-run
+    release: no-script
+    retention: no-script
+    storage: dry-run
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - identity
+  - storage
+  - base-image
+  - instance-image
+  - release
+  - retention
+  run: 2026_10_08t00_56_12_910046
