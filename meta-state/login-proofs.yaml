@@ -65,3 +65,25 @@ proofs:
   run: 2026_10_08t09_51_24_317452
   runtime: aws-main
   time: '2026-10-08T09:51:29+00:00'
+- as: client
+  checks:
+  - detail: '''walk-node-1-002'' is registered once (7cbb0cf2-f39e-47be-94cb-9e4b6d9991ae)'
+    name: one registration
+    ok: true
+  - detail: 'sft resolve walk-node-1-002: exit 0'
+    name: resolves
+    ok: true
+  - detail: logged in as mykel.alvis over sft ssh
+    name: login
+    ok: true
+  evidence:
+  - uid=150006(mykel.alvis) gid=150006(mykel.alvis) groups=150006(mykel.alvis),90000(sft-admin),180049(walk_team)
+    context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+  - walk-node-1-002
+  group: walk_team
+  hostname: walk-node-1-002
+  instance: walk-node-1
+  ok: true
+  run: 2026_10_08t11_56_56_822542
+  runtime: aws-main
+  time: '2026-10-08T11:57:03+00:00'
