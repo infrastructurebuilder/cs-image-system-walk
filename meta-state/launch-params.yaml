@@ -10,7 +10,7 @@ instances:
     identity_type: okta
     image: team-node
     launched: true
-    launched_run: 2026_10_08t11_45_10_731148
+    launched_run: 2026_10_08t11_49_49_430104
     machine_type: t3.medium
     mounts:
     - builder: aws-ebs
@@ -21,6 +21,6 @@ instances:
       share_mode: '2770'
       storage: data
       type: ebs
-    run: 2026_10_08t11_45_10_731148
+    run: 2026_10_08t11_49_49_430104
     session: ssm
     user_data_sha256: b033e338e992555cf5d485148430919a1536937c8c3f84c5253ce588b80e9ff7
