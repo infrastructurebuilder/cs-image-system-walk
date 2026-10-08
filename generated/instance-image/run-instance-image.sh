@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # cs-image-system lifecycle runner: instance-image
-# run id: 2026_10_08t12_02_20_738157
+# run id: 2026_10_08t12_03_17_315808
 # Deferred commands accumulated while generating this lifecycle,
 # in phase order. Paths are relative to this lifecycle's directory.
 # state: workspace tofu-aws -> s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/tofu_aws.tfstate
