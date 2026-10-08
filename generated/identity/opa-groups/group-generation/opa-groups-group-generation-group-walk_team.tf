@@ -3,7 +3,7 @@ module "group_walk_team" {
   source                    = "../../../../tfmodules/okta_opa_module"
   providers                 = { oktapam = oktapam.opa_groups }
   group_id                  = "walk_team"
-  members                   = []
+  members                   = ["zachary.wills"]
   admins                    = ["mykel.alvis"]
   delegated_admin_group_ids = []
   account_discovery         = true
