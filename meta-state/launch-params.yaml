@@ -9,7 +9,8 @@ instances:
     hostname: walk-node-1-001
     identity_type: okta
     image: team-node
-    launched: false
+    launched: true
+    launched_run: 2026_10_08t00_40_35_658425
     machine_type: t3.medium
     mounts:
     - builder: aws-ebs
@@ -20,6 +21,6 @@ instances:
       share_mode: '2770'
       storage: data
       type: ebs
-    run: 2026_10_08t00_37_49_365924
+    run: 2026_10_08t00_40_35_658425
     session: ssm
     user_data_sha256: 7f3fe0bf40f474f82d1235de89e99ca56596c6b3e005b88df9accdc5917f0e26
