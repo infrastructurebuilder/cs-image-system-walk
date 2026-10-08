@@ -19,3 +19,23 @@ verifications:
   run: 2026_10_08t00_51_40_819621
   runtime: aws-main
   time: '2026-10-08T00:51:44+00:00'
+- build: ami-04bb9df333af05e5b
+  checks:
+  - detail: launch parameters applied
+    name: startup scripts
+    ok: true
+  - detail: booted ami-04bb9df333af05e5b, expected ami-04bb9df333af05e5b
+    name: booted image
+    ok: true
+  - detail: 1 mount(s) under /mnt, 1 declared
+    name: data disks mounted
+    ok: true
+  ephemeral: false
+  evidence:
+  - LAUNCH_APPLIED
+  - '1'
+  instance: walk-node-1
+  ok: true
+  run: 2026_10_08t11_49_00_823794
+  runtime: aws-main
+  time: '2026-10-08T11:49:08+00:00'
