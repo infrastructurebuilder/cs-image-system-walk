@@ -21,3 +21,25 @@ proofs:
   run: 2026_10_08t00_55_23_266901
   runtime: aws-main
   time: '2026-10-08T00:55:28+00:00'
+- as: workload
+  checks:
+  - detail: '''walk-node-1-001'' is registered once (3712c40f-7e87-4887-9e9c-19ace91e52c5)'
+    name: one registration
+    ok: true
+  - detail: 'sft resolve walk-node-1-001: exit 0'
+    name: resolves
+    ok: true
+  - detail: logged in as wl_cs_image_system_walk_ci over sft ssh
+    name: login
+    ok: true
+  evidence:
+  - uid=150034(wl_cs_image_system_walk_ci) gid=150034(wl_cs_image_system_walk_ci)
+    groups=150034(wl_cs_image_system_walk_ci) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+  - walk-node-1-001
+  group: walk_team
+  hostname: walk-node-1-001
+  instance: walk-node-1
+  ok: true
+  run: 2026_10_08t01_09_38_779657
+  runtime: aws-main
+  time: '2026-10-08T01:09:44+00:00'
