@@ -55,3 +55,35 @@ builds:
     assertions: 7
     in_bake: true
   update: null
+- build_id: ami-04bb9df333af05e5b
+  capabilities:
+    identity_types:
+    - okta
+    storage_types:
+    - ebs
+  chain:
+  - team-node
+  input_fingerprint: cffb67cf54c27f66df38289dbb977e2a24c83af682ad0cf0a3d978dafa54734a
+  local_mods: true
+  mods:
+  - content_hash: 9bd41e523234374de409f9d88adc52537ab66076d7d9b55129cf94f26924f0b1
+    idempotent: ansible
+    name: base-tools
+    operation: ansible
+    run: 2026_10_08t11_29_37_185886
+    type: ansible
+  - content_hash: 1dcd377d9c27078176dc44a562fe7acc84265b171ecb0cd2a6924ad8a580b320
+    idempotent: unknown
+    name: site-files
+    operation: bash
+    run: 2026_10_08t11_29_37_185886
+    type: bash
+  name: team-node-packer-ebs-20261008_112936
+  parent: ami-0f3c5c4c637ccff19
+  run: 2026_10_08t11_29_37_185886
+  runtime: aws-main
+  series: team-node
+  tests:
+    assertions: 8
+    in_bake: true
+  update: null
