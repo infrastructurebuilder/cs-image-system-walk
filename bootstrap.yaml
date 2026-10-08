@@ -59,7 +59,7 @@ sections:
     production_branch: main
     role_bound: true
     role_exists: true
-    role_pinned: false
+    role_pinned: true
     team: nos-coastal-modeling-cloud-sandbox
     wanted: true
     workload_connection: github-cs-image-system-walk
