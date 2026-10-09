@@ -153,3 +153,18 @@ proofs:
   run: 2026_10_09t01_25_37_081279
   runtime: aws-main
   time: '2026-10-09T01:25:42+00:00'
+- as: client
+  checks:
+  - detail: the machine is STOPPED (switched off; not drift); a login needs it running
+      and the power state is the operator's (stage 57)
+    name: precondition
+    ok: false
+  evidence: []
+  group: walk_team
+  hostname: walk-node-1-002
+  instance: walk-node-1
+  ok: false
+  run: 2026_10_09t10_27_21_260896
+  runtime: aws-main
+  skipped: true
+  time: '2026-10-09T10:27:21+00:00'
