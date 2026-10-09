@@ -926,3 +926,16 @@ runs:
   - release
   - retention
   run: 2026_10_09t00_48_05_580022
+- apply:
+    base-image: no-script
+    identity: executed
+    instance-image: stale-script-skipped
+    release: no-script
+    retention: no-script
+    storage: stale-script-skipped
+  dry_run: false
+  error: null
+  ok: true
+  requested:
+  - identity
+  run: 2026_10_09t00_54_13_492907
