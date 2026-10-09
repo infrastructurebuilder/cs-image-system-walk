@@ -20,7 +20,7 @@ instances:
       share_mode: '2770'
       storage: walk-data
       type: pd
-    run: 2026_10_09t11_52_25_558502
+    run: 2026_10_09t12_18_19_690441
     session: iap
     user_data_sha256: 016d744145fbdf20636580a87ac5176506e88ee889255913b27cb60ada0d3aaf
   walk-node-1:
@@ -45,6 +45,6 @@ instances:
       share_mode: '2770'
       storage: data
       type: ebs
-    run: 2026_10_09t11_52_25_558502
+    run: 2026_10_09t12_18_19_690441
     session: ssm
     user_data_sha256: b033e338e992555cf5d485148430919a1536937c8c3f84c5253ce588b80e9ff7
