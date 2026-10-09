@@ -13,3 +13,13 @@ storages:
     state: active
     tags:
       purpose: data
+  - name: walk-data
+    type: gcp-pd
+    runtime: gcp-main
+    groups:
+      - walk_team
+    share_mode: "2770"
+    state: active
+    availability_zone: us-east1-b     # a persistent disk is zonal
+    tags:
+      purpose: data

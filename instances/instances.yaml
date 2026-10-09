@@ -18,3 +18,15 @@ instances:
         mount_point: /mnt/data
     tags:
       role: node
+  - name: walk-gce-1
+    image: team-node
+    type: tofu-gce
+    runtime: gcp-main
+    machine_type: e2-small
+    ephemeral: true              # launched, verified and torn down inside its cycle
+    description: "The GCE leg's machine; exists only for its cycle"
+    storages:
+      - name: walk-data
+        mount_point: /mnt/walk-data
+    tags:
+      role: node

@@ -14,3 +14,12 @@ storage_builders:
       encrypted: true            # DECISION: encrypted at rest
       tags:                      # builder-wide default tags; a storage item's own tags win key by key
         Project: cs-image-system-walk
+  - name: gcp-pd
+    type: tf-gcp-pd              # a zonal persistent disk, single-attach
+    runtime: gcp-main
+    executable: open-tofu
+    size: 10                     # GB
+    disk_type: pd-standard
+    variables:
+      tags:                      # emitted as labels: lower case
+        project: walk

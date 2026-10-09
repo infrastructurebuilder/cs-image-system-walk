@@ -1,4 +1,4 @@
-run: 2026_10_09t10_46_35_651544
+run: 2026_10_09t11_52_25_558502
 storages:
   data:
     allowed_groups:
@@ -16,3 +16,19 @@ storages:
     requested_state: active
     share_mode: '2770'
     type: ebs
+  walk-data:
+    allowed_groups:
+    - walk_team
+    attachment_cardinality: single
+    attachments:
+    - walk-gce-1
+    builder: gcp-pd
+    current_state: null
+    generation: 1
+    lifecycle: {}
+    plugin: tf-gcp-pd
+    posix: true
+    public_read: false
+    requested_state: active
+    share_mode: '2770'
+    type: pd

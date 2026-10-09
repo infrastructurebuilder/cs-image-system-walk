@@ -14,3 +14,11 @@ instance_builders:
       - name: aws
         source: hashicorp/aws
         version: ">= 4.0.0"
+  - name: tofu-gce
+    type: tofu-gce
+    runtime: gcp-main
+    executable: open-tofu
+    required_plugins:
+      - name: google
+        source: hashicorp/google
+        version: ">= 5.0.0"

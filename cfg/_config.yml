@@ -30,6 +30,7 @@ encryption:
 public_safe:
   allow:
     - "mykelalvis@infrastructurebuilder.org"   # the copyright holder in the SPDX header of every release-owned file: public by intent
+    - ".iam.gserviceaccount.com"     # a service account address is an identifier, not a person: public by decision
 
 
 # Entries appended to the built-in gitignore list and written to generated/.gitignore.

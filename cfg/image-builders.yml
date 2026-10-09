@@ -15,3 +15,14 @@ image_builders:
       - name: ansible
         source: github.com/hashicorp/ansible
         version: ">= 1.0.0"
+  - name: packer-gce
+    type: packer-gce
+    runtime: gcp-main            # NOT the default: the default image builder stays packer-ebs
+    executable: packer
+    required_plugins:
+      - name: googlecompute
+        source: github.com/hashicorp/googlecompute
+        version: ">= 1.0.0"
+      - name: ansible
+        source: github.com/hashicorp/ansible
+        version: ">= 1.0.0"

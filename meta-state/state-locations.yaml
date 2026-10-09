@@ -7,7 +7,18 @@ workspaces:
     location: s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/aws_ebs.tfstate
     profile: noaa
     region: us-east-2
-    run: 2026_10_09t10_46_35_651544
+    run: 2026_10_09t11_52_25_558502
+    type: s3
+    use_lockfile: true
+  gcp-pd:
+    backend: s3-main
+    bucket: csis-walk-tfstate-514190660293
+    encrypt: true
+    key: statefiles/cs-image-system-walk/gcp_pd.tfstate
+    location: s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/gcp_pd.tfstate
+    profile: noaa
+    region: us-east-2
+    run: 2026_10_09t11_52_25_558502
     type: s3
     use_lockfile: true
   okta-users:
@@ -18,7 +29,7 @@ workspaces:
     location: s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/okta_users.tfstate
     profile: noaa
     region: us-east-2
-    run: 2026_10_09t10_46_35_651544
+    run: 2026_10_09t11_52_25_558502
     type: s3
     use_lockfile: true
   opa-groups:
@@ -29,7 +40,7 @@ workspaces:
     location: s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/opa_groups.tfstate
     profile: noaa
     region: us-east-2
-    run: 2026_10_09t10_46_35_651544
+    run: 2026_10_09t11_52_25_558502
     type: s3
     use_lockfile: true
   tofu-aws:
@@ -40,6 +51,17 @@ workspaces:
     location: s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/tofu_aws.tfstate
     profile: noaa
     region: us-east-2
-    run: 2026_10_09t10_46_35_651544
+    run: 2026_10_09t11_52_25_558502
+    type: s3
+    use_lockfile: true
+  tofu-gce:
+    backend: s3-main
+    bucket: csis-walk-tfstate-514190660293
+    encrypt: true
+    key: statefiles/cs-image-system-walk/tofu_gce.tfstate
+    location: s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/tofu_gce.tfstate
+    profile: noaa
+    region: us-east-2
+    run: 2026_10_09t11_52_25_558502
     type: s3
     use_lockfile: true

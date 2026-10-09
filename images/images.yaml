@@ -13,6 +13,7 @@ images:
     parent_policy: pinned
     runtimes:
       - image_builder: packer-ebs      # one bake per runtime
+      - image_builder: packer-gce
     tags:
       role: node
     tests:                       # in-bake assertions on the finished image

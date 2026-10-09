@@ -1,0 +1,10 @@
+content_hash: 1dcd377d9c27078176dc44a562fe7acc84265b171ecb0cd2a6924ad8a580b320
+files:
+- post-install.sh
+- inline.sh
+idempotent: unknown
+image: team-node
+name: site-files
+operation: bash
+run: 2026_10_09t11_52_25_558502
+type: bash

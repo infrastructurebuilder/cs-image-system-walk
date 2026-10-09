@@ -45,3 +45,28 @@ runtime_builders:
           is_default: true               # exactly one subnet is the default: bakes and instances use it
           # DECISION: a private subnet with outbound NAT -- bakes need the
           # internet for packages, and SSM needs no inbound route.
+  - name: gcp-main
+    type: gcloud
+    aliases: [gcp, google]
+    project_id: csis-sandbox
+    region: us-east1
+    zone: us-east1-b
+    description: "GCE runtime for project {{ this.project_id }} in {{ this.zone }}"
+    service_account_email: csis-runner@csis-sandbox.iam.gserviceaccount.com
+    session_mechanism: iap
+    state_configuration: default # the GCE roots keep their state in this tree's own (S3) backend
+    default_disk_size: 10
+    bake_preemptible: true       # spot build machines; a preempted bake re-runs
+    ephemeral: true              # every image baked here is disposed when a run ends well
+    default_machine_type: e2-small
+    default_image_builder: packer-gce
+    tags:                        # emitted as labels: lower case
+      project: walk
+      environment: development
+    networking:
+      network: default
+      subnets:
+        - name: main
+          subnet_id: projects/csis-sandbox/regions/us-east1/subnetworks/default
+          is_default: true
+          public: true

@@ -14,7 +14,7 @@ os_builders:
     # is of another identity type, or an instance attaching another storage
     # type, is refused at validate.
     identity_types: [okta]
-    storage_types: [ebs]
+    storage_types: [ebs, pd]
     # DECISION: security patches only, never the kernel. `policy: full` (or
     # `auto_update: true`) upgrades everything, which is slow enough to sever
     # an SSM build tunnel; `none` bakes the vendor image as is.
@@ -42,3 +42,12 @@ os_builders:
             root_device_type: ebs
             architecture: x86_64
             virtualization_type: hvm
+      - name: gce-el10
+        image_builder: packer-gce     # the same base, baked a second time, on GCE
+        default_machine_type: e2-small
+        ssh_username: packer
+        owners:
+          - almalinux-cloud           # AlmaLinux's public image project (a vendor fact)
+        query:
+          filters:
+            name: "almalinux-10-v*"

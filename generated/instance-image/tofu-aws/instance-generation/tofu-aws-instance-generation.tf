@@ -35,6 +35,16 @@ data "terraform_remote_state" "aws_ebs" {
     profile = "noaa"
   }
 }
+data "terraform_remote_state" "gcp_pd" {
+  backend = "s3"
+
+  config = {
+    bucket  = "csis-walk-tfstate-514190660293"
+    key     = "statefiles/cs-image-system-walk/gcp_pd.tfstate"
+    region  = "us-east-2"
+    profile = "noaa"
+  }
+}
 data "terraform_remote_state" "opa_groups" {
   backend = "s3"
 
