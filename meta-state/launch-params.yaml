@@ -12,7 +12,7 @@ instances:
     launched: false
     machine_type: e2-small
     mounts: []
-    run: 2026_10_09t13_46_14_129250
+    run: 2026_10_09t14_34_47_987622
     session: iap
     user_data_sha256: 527aae4e514857a6bac5ad4a8485f7839330571c05a09b2ca00d37b0932f7a37
   walk-node-1:
@@ -37,6 +37,6 @@ instances:
       share_mode: '2770'
       storage: data
       type: ebs
-    run: 2026_10_09t13_46_14_129250
+    run: 2026_10_09t14_34_47_987622
     session: ssm
     user_data_sha256: b033e338e992555cf5d485148430919a1536937c8c3f84c5253ce588b80e9ff7
