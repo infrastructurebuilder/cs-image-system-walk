@@ -7,8 +7,7 @@ groups:
     identity_type: okta
     is_root: true
     managed: true
-    members:
-    - zachary.wills
+    members: []
     seen: true
     workload:
       action: unchanged
@@ -18,11 +17,10 @@ groups:
       policy: walk_team_v1_security_policy_ci
       role: cs-image-system-walk-ci
       role_id: 26fde38c-cc2f-425c-be6b-b6034ba6f1d8
-      run: 2026_10_09t00_54_13_492907
+      run: 2026_10_09t00_56_29_297507
 note: structural facts only; gids flow by terraform remote-state reference (N7)
-run: 2026_10_09t00_54_13_492907
+run: 2026_10_09t00_56_29_297507
 user_builders:
   okta-users: okta-tf-ro
 users:
 - mykel.alvis
-- zachary.wills
