@@ -22,4 +22,8 @@ storages:
       generation: 1
       run: 2026_10_09t12_21_20_389938
       to: active
-    state: active
+    - from: active
+      generation: 1
+      run: 2026_10_09t13_17_09_460413
+      to: destroyed
+    state: destroyed

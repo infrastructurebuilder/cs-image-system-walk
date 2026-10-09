@@ -1,4 +1,4 @@
-run: 2026_10_09t12_21_20_389938
+run: 2026_10_09t13_17_09_460413
 storages:
   data:
     allowed_groups:
@@ -20,15 +20,14 @@ storages:
     allowed_groups:
     - walk_team
     attachment_cardinality: single
-    attachments:
-    - walk-gce-1
+    attachments: []
     builder: gcp-pd
-    current_state: active
+    current_state: destroyed
     generation: 1
     lifecycle: {}
     plugin: tf-gcp-pd
     posix: true
     public_read: false
-    requested_state: active
+    requested_state: destroyed
     share_mode: '2770'
     type: pd

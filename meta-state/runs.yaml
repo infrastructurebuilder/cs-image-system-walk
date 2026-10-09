@@ -1146,3 +1146,37 @@ runs:
   - release
   - retention
   run: 2026_10_09t12_21_20_389938
+- apply: {}
+  dry_run: true
+  error: 'CalledProcessError: Command ''[''tofu'', ''init'', ''-backend=false'']''
+    returned non-zero exit status 1.'
+  ok: false
+  requested:
+  - storage
+  run: 2026_10_09t13_06_54_432521
+- apply:
+    base-image: stale-script-skipped
+    identity: stale-script-skipped
+    instance-image: stale-script-skipped
+    release: no-script
+    retention: stale-script-skipped
+    storage: dry-run
+  dry_run: true
+  error: null
+  ok: true
+  requested:
+  - storage
+  run: 2026_10_09t13_14_02_792710
+- apply:
+    base-image: stale-script-skipped
+    identity: stale-script-skipped
+    instance-image: stale-script-skipped
+    release: no-script
+    retention: stale-script-skipped
+    storage: executed
+  dry_run: false
+  error: null
+  ok: true
+  requested:
+  - storage
+  run: 2026_10_09t13_17_09_460413

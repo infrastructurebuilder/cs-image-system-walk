@@ -15,13 +15,3 @@ provider "google" {
   zone    = "us-east1-b"
   alias   = "gcp_pd"
 }
-data "terraform_remote_state" "opa_groups" {
-  backend = "s3"
-
-  config = {
-    bucket  = "csis-walk-tfstate-514190660293"
-    key     = "statefiles/cs-image-system-walk/opa_groups.tfstate"
-    region  = "us-east-2"
-    profile = "noaa"
-  }
-}
