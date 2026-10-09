@@ -15,7 +15,7 @@ groups:
       policy: walk_team_v1_security_policy_ci
       role: cs-image-system-walk-ci
 note: structural facts only; gids flow by terraform remote-state reference (N7)
-run: 2026_10_09t01_23_55_848445
+run: 2026_10_09t01_25_45_349295
 user_builders:
   okta-users: okta-tf-ro
 users:
