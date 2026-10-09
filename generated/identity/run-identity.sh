@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # cs-image-system lifecycle runner: identity
-# run id: 2026_10_09t00_56_29_297507
+# run id: 2026_10_09t01_16_00_382640
 # Deferred commands accumulated while generating this lifecycle,
 # in phase order. Paths are relative to this lifecycle's directory.
 # state: workspace opa-groups -> s3://csis-walk-tfstate-514190660293/statefiles/cs-image-system-walk/opa_groups.tfstate
@@ -14,7 +14,7 @@ CSIS_ROOT="$(cd "../.." && pwd)"   # the configuration root, relative to this sc
 # --- phase: group-generation ---
 ( cd "opa-groups/group-generation" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && rm -f tfplan )
 ( cd "opa-groups/group-generation" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && tofu init -input=false -reconfigure -backend-config=opa-groups-group-generation.tfbackend.hcl )
-( cd "opa-groups/group-generation" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && cs-image-system --root-dir "$CSIS_ROOT" --no-dry-run prune-attachments --builder opa-groups --tofu tofu --run 2026_10_09t00_56_29_297507 )
+( cd "opa-groups/group-generation" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && cs-image-system --root-dir "$CSIS_ROOT" --no-dry-run prune-attachments --builder opa-groups --tofu tofu --run 2026_10_09t01_16_00_382640 )
 ( cd "opa-groups/group-generation" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && tofu plan -input=false -out=tfplan )
 ( cd "opa-groups/group-generation" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && cs-image-system gate-plan --planfile tfplan --tofu tofu --allow-destroy-from csis-sanctioned-removals.txt )
 ( cd "opa-groups/group-generation" && cd "$(cs-image-system materialize . --root-dir "$CSIS_ROOT")" && cs-image-system apply-check --lifecycle identity --root opa-groups )
