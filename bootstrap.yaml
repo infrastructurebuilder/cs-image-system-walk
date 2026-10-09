@@ -33,11 +33,27 @@ sections:
     write_role_exists: false
     write_role_name: csis-walk-apply
   gcp:
-    wanted: false
+    attribute_condition: "assertion.repository in ['infrastructurebuilder/cs-image-system-3', 'infrastructurebuilder/cs-image-system-testconfig', 'infrastructurebuilder/cs-image-system-walk']"
+    labels: environment=development,project=walk
+    pool: github
+    pool_exists: true
+    principal_attribute: repository
+    production_branch: main
+    project: csis-sandbox
+    project_number: '86233086783'
+    provider: github
+    provider_exists: true
+    read_account: csis-github-readonly
+    read_account_exists: true
+    read_roles: ''
+    repository: infrastructurebuilder/cs-image-system-walk
+    state_bucket: ''
+    want_write: false
+    wanted: true
   github:
     aws_region: us-east-2
     default_branch: develop
-    guard_runtime: ''
+    guard_runtime: gcp-main
     perform_runtime: aws-main
     production_branch: main
     protect_production: true

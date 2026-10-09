@@ -25,6 +25,21 @@ output "aws_instance_profile_arn" {
   description = "the Session Manager instance profile"
 }
 
+output "gcp_workload_identity_provider" {
+  value       = module.bootstrap_gcp.workload_identity_provider
+  description = "the provider's full name: the GCP_WORKLOAD_IDENTITY_PROVIDER secret"
+}
+
+output "gcp_read_service_account" {
+  value       = module.bootstrap_gcp.read_service_account
+  description = "the READ-ONLY service account's address: the GCP_SERVICE_ACCOUNT secret"
+}
+
+output "gcp_write_service_account" {
+  value       = module.bootstrap_gcp.write_service_account
+  description = "the address CI may write as (the READ-ONLY one when there is no WRITE account): the GCP_APPLY_SERVICE_ACCOUNT secret"
+}
+
 output "github_repository_id" {
   value       = module.bootstrap_github.repository_id
   description = "the repository's numeric id (the one trust conditions pin)"

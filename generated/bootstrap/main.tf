@@ -21,6 +21,27 @@ module "bootstrap_aws" {
   write_role_name         = var.aws_write_role_name
 }
 
+module "bootstrap_gcp" {
+  source               = "../../tfmodules/bootstrap_gcp"
+  attribute_condition  = var.gcp_attribute_condition
+  pool                 = var.gcp_pool
+  pool_exists          = var.gcp_pool_exists
+  principal_attribute  = var.gcp_principal_attribute
+  principal_value      = var.gcp_principal_value
+  production_branch    = var.gcp_production_branch
+  project              = var.gcp_project
+  project_number       = var.gcp_project_number
+  provider_exists      = var.gcp_provider_exists
+  provider_id          = var.gcp_provider
+  read_account         = var.gcp_read_account
+  read_account_exists  = var.gcp_read_account_exists
+  read_roles           = var.gcp_read_roles
+  want_write           = var.gcp_want_write
+  write_account        = var.gcp_write_account
+  write_account_exists = var.gcp_write_account_exists
+  write_roles          = var.gcp_write_roles
+}
+
 module "bootstrap_github" {
   source             = "../../tfmodules/bootstrap_github"
   default_branch     = var.github_default_branch

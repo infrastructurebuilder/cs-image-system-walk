@@ -6,14 +6,14 @@ source "googlecompute" "el10" {
   source_image_project_id = [
     "almalinux-cloud",
   ]
-  image_name   = "el10-gcp-main-20261009-122116"
+  image_name   = "el10-gcp-main-20261009-134610"
   image_family = "el10"
   image_labels = {
     csis_config         = "cs-image-system-walk",
     csis_fingerprint    = "75a9d74dc65f767d",
     csis_identity_types = "okta",
     csis_parent         = "vendor",
-    csis_run            = "2026_10_09t12_21_20_389938",
+    csis_run            = "2026_10_09t13_46_14_129250",
     csis_series         = "el10",
     csis_storage_types  = "ebs-pd",
   }

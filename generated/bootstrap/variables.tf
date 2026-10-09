@@ -95,6 +95,91 @@ variable "aws_write_extra_subjects" {
   description = "other OIDC subjects the WRITE role keeps trusting"
 }
 
+variable "gcp_project" {
+  type        = string
+  description = "the GCP project id"
+}
+
+variable "gcp_project_number" {
+  type        = string
+  description = "the project's number"
+}
+
+variable "gcp_pool" {
+  type        = string
+  description = "the workload identity pool's id"
+}
+
+variable "gcp_pool_exists" {
+  type        = bool
+  description = "the pool already exists (read, not made)"
+}
+
+variable "gcp_provider" {
+  type        = string
+  description = "the pool's GitHub provider id"
+}
+
+variable "gcp_provider_exists" {
+  type        = bool
+  description = "the provider already exists (read, never rewritten)"
+}
+
+variable "gcp_principal_attribute" {
+  type        = string
+  description = "the token attribute the bindings name: repository_id or repository"
+}
+
+variable "gcp_production_branch" {
+  type        = string
+  description = "the branch the WRITE account trusts"
+}
+
+variable "gcp_read_account" {
+  type        = string
+  description = "the READ-ONLY service account's id"
+}
+
+variable "gcp_read_account_exists" {
+  type        = bool
+  description = "the READ-ONLY service account already exists (read, not made)"
+}
+
+variable "gcp_principal_value" {
+  type        = string
+  description = "the value of that attribute: the repository's id, or its owner/name"
+}
+
+variable "gcp_attribute_condition" {
+  type        = string
+  description = "the provider's attribute condition (used only when the provider is made)"
+}
+
+variable "gcp_read_roles" {
+  type        = list(string)
+  description = "project roles the READ-ONLY account holds"
+}
+
+variable "gcp_want_write" {
+  type        = bool
+  description = "CI performs on a GCE runtime: a WRITE service account is made or read"
+}
+
+variable "gcp_write_account" {
+  type        = string
+  description = "the WRITE service account's id (empty when there is none)"
+}
+
+variable "gcp_write_account_exists" {
+  type        = bool
+  description = "the WRITE service account already exists (read, not made)"
+}
+
+variable "gcp_write_roles" {
+  type        = list(string)
+  description = "project roles the WRITE account holds"
+}
+
 variable "github_owner" {
   type        = string
   description = "the repository's owner, for the github provider"

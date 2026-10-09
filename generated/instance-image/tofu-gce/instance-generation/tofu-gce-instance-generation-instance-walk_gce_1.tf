@@ -18,10 +18,4 @@ module "instance_walk_gce_1" {
     "group_gid"            = data.terraform_remote_state.opa_groups.outputs.group_gids["walk_team"]
     "sft_enrollment_token" = var.sft_enrollment_token
   })
-  attached_disks = {
-    "walk-data" = {
-      "device_name"    = "walk-data"
-      "disk_self_link" = data.terraform_remote_state.gcp_pd.outputs.storage_walk_data.self_link
-    }
-  }
 }

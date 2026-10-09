@@ -13,10 +13,16 @@ apply needs nothing typed again; no secret value is in it or in the state.
   - the READ-ONLY role `csis-walk-readonly` (any ref of `infrastructurebuilder/cs-image-system-walk`) and the WRITE role `csis-walk-apply` (`main` alone), subject forms: ids
   - the state bucket `csis-walk-tfstate-514190660293` exists: this root's state is bound to it (decision D8)
   - the instance profile `AmazonSSMRoleForInstancesQuickSetup` read (it exists)
+- **gcp** (`tfmodules/bootstrap_gcp`)
+  - project `csis-sandbox` (number 86233086783); the pool `github` read (it exists), its provider `github` read (it exists, and is not rewritten)
+  - the READ-ONLY account `csis-github-readonly` read (it exists), holding no project role; impersonated by `attribute.repository/infrastructurebuilder/cs-image-system-walk`
+  - no WRITE account: CI does not perform on a GCE runtime
+  - every role and binding here is one member added; nothing existing is replaced
+  - labels: environment=development, project=walk (service accounts carry no labels; kept for what later iterations make)
 - **github** (`tfmodules/bootstrap_github`)
   - the repository `infrastructurebuilder/cs-image-system-walk`: default branch `develop`, perform on `main` (a ruleset: no deletion, no force push; ordinary pushes, the perform job's included, unaffected)
   - Actions enabled for all actions; workflow permissions stay read-only (the workflow asks for what each job needs)
-  - Actions variables: PERFORM_RUNTIME=aws-main, AWS_REGION=us-east-2
+  - Actions variables: PERFORM_RUNTIME=aws-main, GUARD_RUNTIME=gcp-main, AWS_REGION=us-east-2
 - **okta**
   - OPA team `nos-coastal-modeling-cloud-sandbox` at https://noaa.pam.okta.com; the workload connection `github-cs-image-system-walk` exists (active: yes; requires this repository: yes)
   - the workload role `cs-image-system-walk-ci` exists (bound to `github-cs-image-system-walk`: yes; pinned to `main`: yes); named on `opa-groups`: yes
@@ -28,10 +34,12 @@ apply needs nothing typed again; no secret value is in it or in the state.
 Terraform acts as whoever these name -- the same identities the interview asked as:
 
 - `AWS_PROFILE`: the profile the interview probed the account as; its session must be live (`aws sso login`), and it must be allowed to write IAM
+- `GOOGLE_OAUTH_ACCESS_TOKEN`: your active `gcloud` account's token, which the google provider prefers over application-default credentials (those may impersonate a runtime's service account that can read no IAM); it lasts about an hour
 - `GITHUB_TOKEN`: the github provider's token; `gh` must be logged in as someone who administers the repository
 
 ```sh
 export AWS_PROFILE=noaa
+export GOOGLE_OAUTH_ACCESS_TOKEN=$(gcloud auth print-access-token)
 export GITHUB_TOKEN=$(gh auth token)
 cd generated/bootstrap
 tofu init                      # the tree's declared backend
@@ -46,6 +54,8 @@ bash generated/bootstrap/set-secrets.sh
 - The network (VPC, subnets, security groups, the access gateway): the team's, never modified by the system.
 - If an adopted role carries an inline policy made by hand, it stays beside the managed one: once the plan is clean and CI is green, remove the hand-made policy in the console so one document is the truth.
 - The first performing run (CI_SETUP.md 3.8), after the secrets are set.
+- The network and the firewall rules: the team's, never modified by the system.
+- No WRITE service account: `GCP_APPLY_SERVICE_ACCOUNT` is set to the READ-ONLY account's address (CI never writes to a runtime it does not perform on), or delete those lines from the `perform` job (CI_SETUP.md 3.4 step 4).
 - The nine secrets' VALUES: one file per secret under the secrets directory (`/home/mykel.alvis/walk-secrets`, never committed), then `bash set-secrets.sh` (CI_SETUP.md 3.7).
 - The age identity for CI (CI_SETUP.md 3.6): `age-keygen`, the public key into encryption.recipients, `reencrypt`.
 - The values in `.github/workflows/ci.yml` still marked REPLACE-ME: PERFORM_RUNTIME, GUARD_RUNTIME and AWS_REGION are set as Actions variables by this root, but the workflow reads its own literals until a release makes it read `vars`.
@@ -58,9 +68,9 @@ bash generated/bootstrap/set-secrets.sh
 | --- | --- |
 | `AWS_ROLE_ARN` | the output `aws_read_role_arn` |
 | `AWS_APPLY_ROLE_ARN` | the output `aws_write_role_arn` |
-| `GCP_WORKLOAD_IDENTITY_PROVIDER` | a file named after it in the secrets directory |
-| `GCP_SERVICE_ACCOUNT` | a file named after it in the secrets directory |
-| `GCP_APPLY_SERVICE_ACCOUNT` | a file named after it in the secrets directory |
+| `GCP_WORKLOAD_IDENTITY_PROVIDER` | the output `gcp_workload_identity_provider` |
+| `GCP_SERVICE_ACCOUNT` | the output `gcp_read_service_account` |
+| `GCP_APPLY_SERVICE_ACCOUNT` | the output `gcp_write_service_account` |
 | `OKTA_API_PRIVATE_KEY` | a file named after it in the secrets directory |
 | `TF_VAR_KEY` | a file named after it in the secrets directory |
 | `TF_VAR_SECRET` | a file named after it in the secrets directory |

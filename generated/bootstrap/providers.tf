@@ -10,6 +10,10 @@ terraform {
       source  = "integrations/github"
       version = ">= 6.0"
     }
+    google = {
+      source  = "hashicorp/google"
+      version = ">= 5.0"
+    }
   }
   # The tree's declared state backend (decision D8): its bucket stands, so this
   # root keeps its state where every other root does.
@@ -29,6 +33,10 @@ provider "aws" {
   default_tags {
     tags = var.aws_tags
   }
+}
+
+provider "google" {
+  project = var.gcp_project   # the credentials: GOOGLE_OAUTH_ACCESS_TOKEN (README.md, "Apply")
 }
 
 provider "github" {

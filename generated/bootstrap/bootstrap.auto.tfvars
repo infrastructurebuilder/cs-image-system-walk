@@ -24,8 +24,26 @@ aws_tags                    = {
 }
 aws_write_extra_subjects    = []
 aws_write_role_name         = "csis-walk-apply"
+gcp_attribute_condition     = "assertion.repository in ['infrastructurebuilder/cs-image-system-3', 'infrastructurebuilder/cs-image-system-testconfig', 'infrastructurebuilder/cs-image-system-walk']"
+gcp_pool                    = "github"
+gcp_pool_exists             = true
+gcp_principal_attribute     = "repository"
+gcp_principal_value         = "infrastructurebuilder/cs-image-system-walk"
+gcp_production_branch       = "main"
+gcp_project                 = "csis-sandbox"
+gcp_project_number          = "86233086783"
+gcp_provider                = "github"
+gcp_provider_exists         = true
+gcp_read_account            = "csis-github-readonly"
+gcp_read_account_exists     = true
+gcp_read_roles              = []
+gcp_want_write              = false
+gcp_write_account           = ""
+gcp_write_account_exists    = false
+gcp_write_roles             = []
 github_actions_variables    = {
   "AWS_REGION"      = "us-east-2"
+  "GUARD_RUNTIME"   = "gcp-main"
   "PERFORM_RUNTIME" = "aws-main"
 }
 github_default_branch       = "develop"

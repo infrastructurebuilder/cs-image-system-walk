@@ -1,23 +1,11 @@
 #!/usr/bin/env bash
-# cs-image-system launch parameters for instance walk-gce-1-001 (N26).
+# cs-image-system launch parameters for instance walk-gce-1-002 (N26).
 # Generated from validated configuration; immutable after launch --
 # changing them means replacing the instance.
 set -euo pipefail
-hostnamectl set-hostname 'walk-gce-1-001' || true
+hostnamectl set-hostname 'walk-gce-1-002' || true
 # owning group: walk_team (gid by reference)
 GID="${group_gid}"
-# mount storage walk-data (pd) at /mnt/walk-data
-mkdir -p '/mnt/walk-data'
-DEV='/dev/disk/by-id/google-walk-data'
-BYID="$DEV"
-# the attachment lands after boot: wait for either name
-for i in $(seq 1 60); do [ -e "$DEV" ] && break; [ -e "$BYID" ] && DEV="$BYID" && break; sleep 2; done
-if ! blkid "$DEV" >/dev/null 2>&1; then mkfs -t xfs "$DEV"; fi
-grep -q ' /mnt/walk-data ' /etc/fstab || echo "$DEV /mnt/walk-data xfs defaults,nofail 0 2" >> /etc/fstab
-mount '/mnt/walk-data' || mount "$DEV" '/mnt/walk-data'
-mkdir -p '/mnt/walk-data/walk_team'
-chgrp "$GID" '/mnt/walk-data/walk_team'
-chmod 2770 '/mnt/walk-data/walk_team'
 # advertise the reachable private address: the auto-discovered public
 # IP is unroutable when the VPC has no internet gateway (found live)
 PRIV_IP=$(hostname -I | awk '{print $1}')

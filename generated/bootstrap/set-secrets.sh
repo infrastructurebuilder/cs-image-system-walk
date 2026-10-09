@@ -21,12 +21,12 @@ from_output() {   # NAME OUTPUT: the applied root's output holds the value
 from_output AWS_ROLE_ARN aws_read_role_arn
 # the WRITE role's ARN, from the applied root
 from_output AWS_APPLY_ROLE_ARN aws_write_role_arn
-# the provider's full resource name (3.4)
-from_file GCP_WORKLOAD_IDENTITY_PROVIDER
-# the READ-ONLY service account's address (3.4)
-from_file GCP_SERVICE_ACCOUNT
-# the service account that may write (3.4)
-from_file GCP_APPLY_SERVICE_ACCOUNT
+# the provider's full resource name, from the applied root
+from_output GCP_WORKLOAD_IDENTITY_PROVIDER gcp_workload_identity_provider
+# the READ-ONLY service account's address, from the applied root
+from_output GCP_SERVICE_ACCOUNT gcp_read_service_account
+# the address CI may write as, from the applied root
+from_output GCP_APPLY_SERVICE_ACCOUNT gcp_write_service_account
 # the okta provider's private key, PEM (3.5)
 from_file OKTA_API_PRIVATE_KEY
 # the OPA service user's key (3.5)
