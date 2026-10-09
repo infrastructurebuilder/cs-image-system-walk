@@ -19,7 +19,7 @@ storages:
     groups:
       - walk_team
     share_mode: "2770"
-    state: active
+    state: destroyed
     availability_zone: us-east1-b     # a persistent disk is zonal
     tags:
       purpose: data

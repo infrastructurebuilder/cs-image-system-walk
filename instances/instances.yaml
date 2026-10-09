@@ -25,8 +25,5 @@ instances:
     machine_type: e2-small
     ephemeral: true              # launched, verified and torn down inside its cycle
     description: "The GCE leg's machine; exists only for its cycle"
-    storages:
-      - name: walk-data
-        mount_point: /mnt/walk-data
     tags:
       role: node
