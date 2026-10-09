@@ -3,14 +3,14 @@ source "googlecompute" "team-node" {
   project_id          = "csis-sandbox"
   zone                = "us-east1-b"
   source_image_family = "el10"
-  image_name          = "team-node-packer-gce-20261009-121816"
+  image_name          = "team-node-packer-gce-20261009-122116"
   image_family        = "team-node"
   image_labels = {
     csis_config         = "cs-image-system-walk",
     csis_fingerprint    = "201b54862d5fbac9",
     csis_identity_types = "okta",
     csis_parent         = "series-el10",
-    csis_run            = "2026_10_09t12_18_19_690441",
+    csis_run            = "2026_10_09t12_21_20_389938",
     csis_series         = "team-node",
     csis_storage_types  = "ebs-pd",
     role                = "node",

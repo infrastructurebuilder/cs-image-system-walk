@@ -21,3 +21,15 @@ upgrades:
   op: upgrade
   run: 2026_10_08t11_44_51_062310
   to: ami-04bb9df333af05e5b
+- kind: image
+  name: team-node@gcp-main
+  op: bind
+  run: 2026_10_09t12_21_20_389938
+  runtime: gcp-main
+  to: el10-gcp-main-20261009-122116
+- from: el10-gcp-main-20261009-122116
+  kind: image
+  name: team-node@gcp-main
+  op: dispose
+  run: 2026_10_09t12_38_26_430125
+  to: null

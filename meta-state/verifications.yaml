@@ -79,3 +79,67 @@ verifications:
   run: 2026_10_09t10_29_32_294429
   runtime: aws-main
   time: '2026-10-09T10:29:36+00:00'
+- build: team-node-packer-gce-20261009-122116
+  checks:
+  - detail: finished
+    name: startup scripts
+    ok: true
+  - detail: booted team-node-packer-gce-20261009-122116, a recorded build of team-node
+      on gcp-main
+    name: booted image
+    ok: true
+  - detail: 4 clean XFS mount(s) on the console, 1 declared
+    name: data disks mounted
+    ok: true
+  ephemeral: true
+  evidence:
+  - '[   31.955241] XFS (sdb): Ending clean mount'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"): meta-data=/dev/disk/by-id/google-walk-data isize=512    agcount=4,
+    agsize=655360 blks'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"):          =                       sectsz=4096  attr=2, projid32bit=1'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"):          =                       crc=1        finobt=1,
+    sparse=1, rmapbt=1'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"):          =                       reflink=1    bigtime=1
+    inobtcount=1 nrext64=1'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"):          =                       exchange=0   metadir=0'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"): data     =                       bsize=4096   blocks=2621440,
+    imaxpct=25'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"):          =                       sunit=0      swidth=0 blks'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"): naming   =version 2              bsize=4096   ascii-ci=0,
+    ftype=1, parent=0'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"): log      =internal log           bsize=4096   blocks=16384,
+    version=2'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"):          =                       sectsz=4096  sunit=1 blks,
+    lazy-count=1'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"): realtime =none                   extsz=4096   blocks=0,
+    rtextents=0'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"):          =                       rgcount=0    rgsize=0 extents'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"):          =                       zoned=0      start=0 reserved=0'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Metadata key("startup-script"),
+    command("/bin/bash"): Discarding blocks...Done.'
+  - 'Oct  9 12:36:02 walk-gce-1 kernel: XFS (sdb): Mounting V5 Filesystem 3de728f3-8381-495c-bcf8-13171048be96'
+  - 'Oct  9 12:36:02 walk-gce-1 kernel: XFS (sdb): Ending clean mount'
+  - 'Oct  9 12:36:02 walk-gce-1 google_metadata_script_runner[1179]: Finished running
+    startup scripts'
+  - 'Oct  9 12:36:03 walk-gce-1 systemd[1]: google-startup-scripts.service: Deactivated
+    successfully.'
+  - 'Oct  9 12:36:03 walk-gce-1 systemd[1]: Finished google-startup-scripts.service
+    - Google Compute Engine Startup Scripts.'
+  instance: walk-gce-1
+  ok: true
+  run: 2026_10_09t12_35_25_923288
+  runtime: gcp-main
+  time: '2026-10-09T12:36:14+00:00'

@@ -1,28 +1,4 @@
 instances:
-  walk-gce-1:
-    build: unbound
-    enrollment:
-      enrollment: sftd-token
-      server_label: sftd.tx.group=walk_team
-    ephemeral: true
-    group: walk_team
-    hostname: walk-gce-1-001
-    identity_type: okta
-    image: team-node
-    launched: false
-    machine_type: e2-small
-    mounts:
-    - builder: gcp-pd
-      device: /dev/disk/by-id/google-walk-data
-      group: walk_team
-      mount_point: /mnt/walk-data
-      public_read: false
-      share_mode: '2770'
-      storage: walk-data
-      type: pd
-    run: 2026_10_09t12_18_19_690441
-    session: iap
-    user_data_sha256: 016d744145fbdf20636580a87ac5176506e88ee889255913b27cb60ada0d3aaf
   walk-node-1:
     build: ami-04bb9df333af05e5b
     enrollment:
@@ -45,6 +21,6 @@ instances:
       share_mode: '2770'
       storage: data
       type: ebs
-    run: 2026_10_09t12_18_19_690441
+    run: 2026_10_09t12_21_20_389938
     session: ssm
     user_data_sha256: b033e338e992555cf5d485148430919a1536937c8c3f84c5253ce588b80e9ff7

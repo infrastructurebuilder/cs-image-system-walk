@@ -1,4 +1,42 @@
 instances:
+  walk-gce-1:
+    generation:
+      durable: 0
+      ephemeral: 1
+    history:
+    - closed_at: '2026-10-09T12:38:20+00:00'
+      closed_run: 2026_10_09t12_21_20_389938
+      how: inferred
+      kind: ephemeral
+      launch_params:
+        build: unbound
+        enrollment:
+          enrollment: sftd-token
+          server_label: sftd.tx.group=walk_team
+        ephemeral: true
+        group: walk_team
+        hostname: walk-gce-1-001
+        identity_type: okta
+        image: team-node
+        launched: true
+        launched_run: 2026_10_09t12_21_20_389938
+        machine_type: e2-small
+        mounts:
+        - builder: gcp-pd
+          device: /dev/disk/by-id/google-walk-data
+          group: walk_team
+          mount_point: /mnt/walk-data
+          public_read: false
+          share_mode: '2770'
+          storage: walk-data
+          type: pd
+        run: 2026_10_09t12_21_20_389938
+        session: iap
+        user_data_sha256: 016d744145fbdf20636580a87ac5176506e88ee889255913b27cb60ada0d3aaf
+      number: 1
+      opened_at: '2026-10-09T12:38:20+00:00'
+      opened_run: 2026_10_09t12_21_20_389938
+      why: ephemeral
   walk-node-1:
     current:
       how: observed

@@ -1,4 +1,4 @@
-run: 2026_10_09t12_18_19_690441
+run: 2026_10_09t12_21_20_389938
 storages:
   data:
     allowed_groups:
@@ -23,7 +23,7 @@ storages:
     attachments:
     - walk-gce-1
     builder: gcp-pd
-    current_state: null
+    current_state: active
     generation: 1
     lifecycle: {}
     plugin: tf-gcp-pd

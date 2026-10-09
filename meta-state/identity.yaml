@@ -10,12 +10,16 @@ groups:
     members: []
     seen: true
     workload:
+      action: unchanged
       connection: github-cs-image-system-walk
+      id: 489f537b-7ed9-4973-9764-b2d4edf28061
       mirrors: walk_team_v1_security_policy_user
       policy: walk_team_v1_security_policy_ci
       role: cs-image-system-walk-ci
+      role_id: 26fde38c-cc2f-425c-be6b-b6034ba6f1d8
+      run: 2026_10_09t12_21_20_389938
 note: structural facts only; gids flow by terraform remote-state reference (N7)
-run: 2026_10_09t12_18_19_690441
+run: 2026_10_09t12_21_20_389938
 user_builders:
   okta-users: okta-tf-ro
 users:

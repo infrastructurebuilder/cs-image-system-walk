@@ -11,3 +11,15 @@ storages:
       run: 2026_10_07t15_26_24_332664
       to: active
     state: active
+  walk-data:
+    facts:
+      archive: csis-walk-data-archive
+      builder: gcp-pd
+      type: pd
+    generation: 1
+    history:
+    - from: null
+      generation: 1
+      run: 2026_10_09t12_21_20_389938
+      to: active
+    state: active
